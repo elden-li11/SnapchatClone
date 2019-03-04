@@ -38,7 +38,7 @@ class ImagePickerViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let dimension = self.imagePickerCollectionView.frame.size.width / 4;
+        let dimension = self.imagePickerCollectionView.frame.size.width/2.1;
         return CGSize(width: dimension, height: dimension)
     }
     

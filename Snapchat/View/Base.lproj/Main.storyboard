@@ -49,9 +49,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Bua-d5-iin">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Bua-d5-iin">
+                                <rect key="frame" x="10" y="88" width="394" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="34C-WP-93V">
                                     <size key="itemSize" width="188" height="189"/>
@@ -68,18 +67,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mqe-G5-dqp">
-                                                    <rect key="frame" x="-0.5" y="0.0" width="189" height="189"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="mqe-G5-dqp" secondAttribute="height" multiplier="1:1" id="NeA-RL-7fo"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="0.0" y="0.0" width="188" height="189"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="mqe-G5-dqp" firstAttribute="width" secondItem="Jil-mS-EzW" secondAttribute="height" multiplier="1:1" id="0i7-ZN-GSN"/>
-                                            <constraint firstItem="mqe-G5-dqp" firstAttribute="centerY" secondItem="Jil-mS-EzW" secondAttribute="centerY" id="51d-IM-ei6"/>
-                                            <constraint firstItem="mqe-G5-dqp" firstAttribute="height" secondItem="Jil-mS-EzW" secondAttribute="height" id="pOK-6w-WhG"/>
-                                            <constraint firstItem="mqe-G5-dqp" firstAttribute="centerX" secondItem="Jil-mS-EzW" secondAttribute="centerX" id="qRi-cY-jcb"/>
+                                            <constraint firstItem="mqe-G5-dqp" firstAttribute="centerY" secondItem="Jil-mS-EzW" secondAttribute="centerY" id="06g-Xp-ARJ"/>
+                                            <constraint firstItem="mqe-G5-dqp" firstAttribute="height" secondItem="Jil-mS-EzW" secondAttribute="height" id="BBV-e2-5Ue"/>
+                                            <constraint firstItem="mqe-G5-dqp" firstAttribute="centerX" secondItem="Jil-mS-EzW" secondAttribute="centerX" id="Ntv-pU-eXz"/>
+                                            <constraint firstItem="mqe-G5-dqp" firstAttribute="width" secondItem="Jil-mS-EzW" secondAttribute="width" id="fLK-ZY-0F8"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="collectionImage" destination="mqe-G5-dqp" id="qSE-Ch-Hqd"/>
@@ -89,6 +85,13 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Bua-d5-iin" firstAttribute="centerX" secondItem="obW-Oh-IW8" secondAttribute="centerX" id="0BV-dy-qZo"/>
+                            <constraint firstItem="Bua-d5-iin" firstAttribute="height" secondItem="obW-Oh-IW8" secondAttribute="height" id="3d8-Nx-eOT"/>
+                            <constraint firstAttribute="trailing" secondItem="Bua-d5-iin" secondAttribute="trailing" constant="10" id="9x1-ha-2r1"/>
+                            <constraint firstItem="Bua-d5-iin" firstAttribute="centerY" secondItem="obW-Oh-IW8" secondAttribute="centerY" id="FOi-9g-T8e"/>
+                            <constraint firstItem="Bua-d5-iin" firstAttribute="leading" secondItem="obW-Oh-IW8" secondAttribute="leading" constant="10" id="jdj-Rc-EyP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="obW-Oh-IW8"/>
                     </view>
                     <navigationItem key="navigationItem" id="52G-Wk-q2w"/>
