@@ -9,22 +9,15 @@
 import UIKit
 
 class FeedPickerViewController: UIViewController {
+    
+    var imageName: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        postImageLabel.text = "Posting image: " + imageName
+        print(postImageLabel.text!)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    @IBOutlet weak var postImageLabel: UILabel!
+    @IBOutlet weak var toFeedLabel: UILabel!
 }

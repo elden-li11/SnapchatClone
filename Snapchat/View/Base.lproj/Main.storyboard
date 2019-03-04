@@ -104,7 +104,7 @@
         <!--Feed Picker View Controller-->
         <scene sceneID="o3K-ou-9Nf">
             <objects>
-                <viewController id="skM-aJ-0up" userLabel="Feed Picker View Controller" customClass="ImagePickerViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="skM-aJ-0up" userLabel="Feed Picker View Controller" customClass="FeedPickerViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DxL-hC-hMl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -139,7 +139,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="okS-hd-L5K">
-                                <rect key="frame" x="334" y="810" width="60" height="48"/>
+                                <rect key="frame" x="331" y="810" width="63" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="63" id="f1G-n6-s3r"/>
+                                </constraints>
                                 <state key="normal" title="Button" image="goButton"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posting image:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvc-kw-hY8">
@@ -151,7 +154,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="okS-hd-L5K" firstAttribute="leading" secondItem="jvc-kw-hY8" secondAttribute="trailing" constant="201" id="20J-VR-Hkm"/>
                             <constraint firstItem="jvc-kw-hY8" firstAttribute="top" secondItem="Wz0-Uu-1QG" secondAttribute="bottom" constant="23" id="Egr-Is-Dw1"/>
                             <constraint firstItem="e5z-XU-HHC" firstAttribute="leading" secondItem="Jbe-oJ-9dl" secondAttribute="leading" constant="20" id="Ilb-c8-Lqi"/>
                             <constraint firstItem="Jbe-oJ-9dl" firstAttribute="bottom" secondItem="Wz0-Uu-1QG" secondAttribute="bottom" constant="79" id="RVE-o5-qJf"/>
@@ -162,14 +164,16 @@
                             <constraint firstItem="okS-hd-L5K" firstAttribute="top" secondItem="Wz0-Uu-1QG" secondAttribute="bottom" constant="27" id="c1h-yM-oHt"/>
                             <constraint firstAttribute="trailing" secondItem="okS-hd-L5K" secondAttribute="trailing" constant="20" id="eQR-GQ-5p2"/>
                             <constraint firstItem="jvc-kw-hY8" firstAttribute="leading" secondItem="Jbe-oJ-9dl" secondAttribute="leading" constant="20" id="eV1-7A-hbT"/>
-                            <constraint firstItem="okS-hd-L5K" firstAttribute="leading" secondItem="e5z-XU-HHC" secondAttribute="trailing" constant="252" id="g0Z-CE-WjM"/>
                             <constraint firstItem="Jbe-oJ-9dl" firstAttribute="trailing" secondItem="Wz0-Uu-1QG" secondAttribute="trailing" id="gFw-de-u4h"/>
                             <constraint firstItem="Jbe-oJ-9dl" firstAttribute="bottom" secondItem="okS-hd-L5K" secondAttribute="bottom" constant="4" id="lCT-BX-BgX"/>
-                            <constraint firstItem="okS-hd-L5K" firstAttribute="leading" secondItem="jvc-kw-hY8" secondAttribute="trailing" constant="201" id="naG-3l-bt9"/>
                             <constraint firstItem="Wz0-Uu-1QG" firstAttribute="top" secondItem="Jbe-oJ-9dl" secondAttribute="top" id="rBu-oX-dtR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jbe-oJ-9dl"/>
                     </view>
+                    <connections>
+                        <outlet property="postImageLabel" destination="jvc-kw-hY8" id="Zhg-3m-ZA6"/>
+                        <outlet property="toFeedLabel" destination="e5z-XU-HHC" id="cqw-jV-l7w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bmk-Fv-M4M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

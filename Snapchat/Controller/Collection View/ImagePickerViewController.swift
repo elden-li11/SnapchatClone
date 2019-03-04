@@ -18,6 +18,7 @@ class ImagePickerViewController: UIViewController, UICollectionViewDataSource, U
 
     @IBOutlet weak var imagePickerCollectionView: UICollectionView!
     let data = Data()
+    var imageSelected: String = ""
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.images.count
@@ -32,11 +33,22 @@ class ImagePickerViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Selected \(data.images[indexPath.row])")
+        self.imageSelected = data.images[indexPath.row]
+        performSegue(withIdentifier: "pickerToFeed", sender: Any?.self)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let dimension = self.imagePickerCollectionView.frame.size.width / 4;
         return CGSize(width: dimension, height: dimension)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "pickerToFeed" {
+                if let dest = segue.destination as? FeedPickerViewController {
+                    dest.imageName = self.imageSelected
+                }
+            }
+        }
     }
 }
