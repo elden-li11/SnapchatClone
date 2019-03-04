@@ -60,7 +60,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Jil-mS-EzW" customClass="ImagePickerViewCell" customModule="Snapchat" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="snapchatCollectionCell" id="Jil-mS-EzW" customClass="ImagePickerViewCell" customModule="Snapchat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="188" height="189"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -93,7 +93,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="52G-Wk-q2w"/>
                     <connections>
-                        <segue destination="skM-aJ-0up" kind="show" id="FgQ-MJ-twa"/>
+                        <outlet property="imagePickerCollectionView" destination="Bua-d5-iin" id="fZ4-dc-tu6"/>
+                        <segue destination="skM-aJ-0up" kind="show" identifier="pickerToFeed" id="FgQ-MJ-twa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dym-jA-1sQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -103,7 +104,7 @@
         <!--Feed Picker View Controller-->
         <scene sceneID="o3K-ou-9Nf">
             <objects>
-                <viewController id="skM-aJ-0up" userLabel="Feed Picker View Controller" sceneMemberID="viewController">
+                <viewController id="skM-aJ-0up" userLabel="Feed Picker View Controller" customClass="ImagePickerViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DxL-hC-hMl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
