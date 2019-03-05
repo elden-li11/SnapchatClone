@@ -67,7 +67,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mqe-G5-dqp">
-                                                    <rect key="frame" x="0.0" y="0.0" width="188" height="189"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="188" height="188"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
@@ -78,7 +78,7 @@
                                             <constraint firstItem="mqe-G5-dqp" firstAttribute="width" secondItem="Jil-mS-EzW" secondAttribute="width" id="fLK-ZY-0F8"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="collectionImage" destination="mqe-G5-dqp" id="qSE-Ch-Hqd"/>
+                                            <outlet property="collectionImage" destination="mqe-G5-dqp" id="vuv-sS-Q2b"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -120,10 +120,10 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="695"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FeedPickerLabel" rowHeight="82" id="fmf-XT-2O2">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FeedPickerLabel" rowHeight="82" id="fmf-XT-2O2" customClass="FeedPickerViewCell" customModule="Snapchat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="82"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fmf-XT-2O2" id="aaa-P6-kBi">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fmf-XT-2O2" id="aaa-P6-kBi" customClass="UILabel">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="81.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -136,6 +136,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="feedPickerLabel" destination="aaa-P6-kBi" id="kzU-Eo-5Ae"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -178,8 +181,9 @@
                         <viewLayoutGuide key="safeArea" id="Jbe-oJ-9dl"/>
                     </view>
                     <connections>
-                        <outlet property="postImageLabel" destination="jvc-kw-hY8" id="Zhg-3m-ZA6"/>
-                        <outlet property="toFeedLabel" destination="e5z-XU-HHC" id="cqw-jV-l7w"/>
+                        <outlet property="feedPickerTableView" destination="Wz0-Uu-1QG" id="c7K-3w-Kqk"/>
+                        <outlet property="postImageLabel" destination="jvc-kw-hY8" id="QhY-wP-VaT"/>
+                        <outlet property="toFeedLabel" destination="e5z-XU-HHC" id="M1w-BP-LXH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bmk-Fv-M4M" userLabel="First Responder" sceneMemberID="firstResponder"/>

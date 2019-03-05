@@ -8,15 +8,38 @@
 
 import UIKit
 
-class FeedPickerViewController: UIViewController {
-    
-    var imageName: String = ""
-
+class FeedPickerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var feedPickerTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Feeds"
+        feedPickerTableView.delegate = self
+        feedPickerTableView.dataSource = self
         postImageLabel.text = "Posting image: " + imageName
         print(postImageLabel.text!)
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.feeds.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "FeedPickerLabel", for: indexPath) as? FeedPickerViewCell {
+            if let label = cell.feedPickerLabel {
+                label.text = data.feeds[indexPath.row]
+            }
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Selected \(data.feeds[indexPath.row])")
+        toFeedLabel.text = "To feed: " + data.feeds[indexPath.row]
+    }
+    
+    let data = Data()
+    var imageName: String = ""
     
     @IBOutlet weak var postImageLabel: UILabel!
     @IBOutlet weak var toFeedLabel: UILabel!

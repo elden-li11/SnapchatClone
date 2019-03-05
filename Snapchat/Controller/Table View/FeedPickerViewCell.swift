@@ -2,15 +2,24 @@
 //  FeedPickerViewCell.swift
 //  Snapchat
 //
-//  Created by Arman Vaziri on 3/3/19.
+//  Created by Elden Li on 3/4/19.
 //  Copyright © 2019 iosdecal. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-class FeedPickerViewCell: UITableView {
-    
-    
-    
+class FeedPickerViewCell: UITableViewCell {
+
+    @IBOutlet weak var feedPickerLabel: UILabel!
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+    }
+
 }
