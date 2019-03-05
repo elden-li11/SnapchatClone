@@ -25,8 +25,9 @@ class FeedPickerViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "FeedPickerLabel", for: indexPath) as? FeedPickerViewCell {
-            if let label = cell.feedPickerLabel {
-                label.text = data.feeds[indexPath.row]
+            if let feedLabel = cell.feedLabel {
+                feedLabel.text = data.feeds[indexPath.row]
+                print("YEE")
             }
             return cell
         }

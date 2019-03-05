@@ -9,9 +9,8 @@
 import UIKit
 
 class FeedPickerViewCell: UITableViewCell {
-
-    @IBOutlet weak var feedPickerLabel: UILabel!
-
+    @IBOutlet weak var feedLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
