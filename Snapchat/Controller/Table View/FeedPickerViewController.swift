@@ -12,6 +12,7 @@ class FeedPickerViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var feedPickerTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        feedPickerTableView.rowHeight = 70
         self.title = "Feeds"
         feedPickerTableView.delegate = self
         feedPickerTableView.dataSource = self
