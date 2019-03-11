@@ -9,6 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    var base: String = ""
+    var target: String = ""
+    var pickerData: [String] = [String]()
+    let theData = Data.init()
+    let red = UIColor.red
+    let green = UIColor.green
 
     @IBOutlet weak var symbolLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -19,13 +26,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBOutlet weak var currencySelect: UISegmentedControl!
     
-    var base: String = ""
-    var target: String = ""
-    
-    
     @IBOutlet weak var cryptoPicker: UIPickerView!
-    
-    var pickerData: [String] = [String]()
     
     @IBAction func currencySelectAction(_ sender: Any) {
         self.target = currencySelect.titleForSegment(at: currencySelect.selectedSegmentIndex)!
@@ -35,10 +36,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         fetchDataJSON(self.base, self.target)
     }
     
-    
-    let theData = Data.init()
-    let red = UIColor.red
-    let green = UIColor.green
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +65,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         return pickerData[row]
     }
     
-    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print(pickerData[row])
+        self.base = self.theData.cryptoDataReversed[pickerData[row]]!
+        print(self.base)
+    }
     
     func fetchDataJSON(_ base: String, _ target: String) {
         guard let url = URL(string: "https://api.cryptonator.com/api/ticker/" + base + "-" + target) else {return}

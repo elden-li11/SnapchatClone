@@ -18,6 +18,15 @@ class Data {
                       "ZEC": "ZCash",
                       "XMR": "Monero",
                       "MKR": "Maker"]
+    
+    let cryptoDataReversed = ["Bitcoin": "BTC",
+                              "Litecoin": "LTC",
+                              "Etherium": "ETH",
+                              "Bitcoin Cash": "BCH",
+                              "Ripple": "XRP",
+                              "ZCash": "ZEC",
+                              "Monero": "XMR",
+                              "Maker": "MKR"]
     var cryptoNames:[String]!
     let currencyData = ["USD": "$",
                         "EUR": "€",
