@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     var target: String = ""
     
     @IBAction func currencySelectAction(_ sender: Any) {
-        self.base = self.theData.currencyData[currencySelect.titleForSegment(at: currencySelect.selectedSegmentIndex)!]!
+        self.target = currencySelect.titleForSegment(at: currencySelect.selectedSegmentIndex)!
     }
     
     @IBAction func refreshButtonTouched(_ sender: Any) {
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         fetchDataJSON(self.base, self.target)
     }
     
-    func fetchDataJSON(_ base: String,_ target: String) {
+    func fetchDataJSON(_ base: String, _ target: String) {
         guard let url = URL(string: "https://api.cryptonator.com/api/ticker/" + base + "-" + target) else {return}
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if error == nil {
