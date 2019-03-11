@@ -16,6 +16,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var changeLabel: UILabel!
     
+    
+    @IBOutlet weak var currencySelect: UISegmentedControl!
+    
+    @IBAction func currencySelectAction(_ sender: Any) {
+        
+    }
+    
+    @IBAction func refreshButtonTouched(_ sender: Any) {
+    }
+    
+    
     let theData = Data.init()
     let red = UIColor.red
     let green = UIColor.green
