@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var symbolLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -21,6 +21,11 @@ class ViewController: UIViewController {
     
     var base: String = ""
     var target: String = ""
+    
+    
+    @IBOutlet weak var cryptoPicker: UIPickerView!
+    
+    var pickerData: [String] = [String]()
     
     @IBAction func currencySelectAction(_ sender: Any) {
         self.target = currencySelect.titleForSegment(at: currencySelect.selectedSegmentIndex)!
@@ -38,10 +43,32 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.cryptoPicker.delegate = self
+        self.cryptoPicker.dataSource = self
         self.base = "BTC"
         self.target = "USD"
+        
+        pickerData = theData.fullNames
         fetchDataJSON(self.base, self.target)
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return theData.fullNames.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    
     
     func fetchDataJSON(_ base: String, _ target: String) {
         guard let url = URL(string: "https://api.cryptonator.com/api/ticker/" + base + "-" + target) else {return}

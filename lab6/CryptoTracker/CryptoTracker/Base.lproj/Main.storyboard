@@ -64,9 +64,8 @@
                                     <action selector="refreshButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Ge-H4-apG"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="scw-z3-jBm">
-                                <rect key="frame" x="0.0" y="566" width="414" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scw-z3-jBm">
+                                <rect key="frame" x="0.0" y="571" width="414" height="216"/>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -78,6 +77,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CIm-aq-tjd" secondAttribute="trailing" constant="16" id="B5O-Ku-vjU"/>
                             <constraint firstItem="Buh-jM-uMX" firstAttribute="leading" secondItem="PXI-3o-4gK" secondAttribute="trailing" constant="20" id="CSn-s8-Pkf"/>
                             <constraint firstItem="BKG-Wd-RQw" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="DCF-gu-O4X"/>
+                            <constraint firstItem="scw-z3-jBm" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Nv3-vQ-6ex"/>
+                            <constraint firstItem="Buh-jM-uMX" firstAttribute="top" secondItem="scw-z3-jBm" secondAttribute="bottom" constant="44" id="SOQ-4h-uAY"/>
+                            <constraint firstItem="scw-z3-jBm" firstAttribute="top" secondItem="UrA-Z6-pSF" secondAttribute="bottom" constant="42.5" id="UFm-rO-RJR"/>
                             <constraint firstItem="PXI-3o-4gK" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="WUb-LC-kMv"/>
                             <constraint firstAttribute="bottom" secondItem="Buh-jM-uMX" secondAttribute="bottom" constant="32" id="XTS-gV-kIc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UrA-Z6-pSF" secondAttribute="trailing" constant="16" id="bsL-c1-Kn4"/>
@@ -88,6 +90,7 @@
                             <constraint firstItem="h0m-hk-Bnr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ozC-dF-ekx"/>
                             <constraint firstItem="UrA-Z6-pSF" firstAttribute="top" secondItem="CIm-aq-tjd" secondAttribute="bottom" constant="8" id="pP0-gY-RRP"/>
                             <constraint firstItem="CIm-aq-tjd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="rRM-Px-zI7"/>
+                            <constraint firstItem="scw-z3-jBm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rXU-2s-y7e"/>
                             <constraint firstItem="UrA-Z6-pSF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="teD-oB-9VL"/>
                             <constraint firstItem="UrA-Z6-pSF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="uzQ-Y7-SX5"/>
                             <constraint firstItem="PXI-3o-4gK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="wmA-n7-GJT"/>
@@ -97,6 +100,7 @@
                     </view>
                     <connections>
                         <outlet property="changeLabel" destination="UrA-Z6-pSF" id="hUt-kf-9hm"/>
+                        <outlet property="cryptoPicker" destination="scw-z3-jBm" id="UJe-Ot-VkP"/>
                         <outlet property="currencySelect" destination="PXI-3o-4gK" id="PPG-xx-paE"/>
                         <outlet property="nameLabel" destination="BKG-Wd-RQw" id="uOg-qO-tKU"/>
                         <outlet property="priceLabel" destination="CIm-aq-tjd" id="uyW-Lj-dn8"/>

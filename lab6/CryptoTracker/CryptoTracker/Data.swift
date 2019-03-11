@@ -23,10 +23,13 @@ class Data {
                         "EUR": "€",
                         "GBP": "£"]
     var currencyNames:[String]!
+    var fullNames:[String]!
     
     init() {
         cryptoNames = Array(cryptoData.keys).sorted()
+        fullNames = Array(cryptoData.values).sorted()
         currencyNames = Array(currencyData.keys).sorted()
     }
+
     
 }
