@@ -45,18 +45,16 @@ class ViewController: UIViewController {
                 do {
                     let decoded = try JSONDecoder().decode(Crypto.self, from: data)
                     DispatchQueue.main.async {
-                        self.symbolLabel.text = decoded.ticker["base"]
-                        self.nameLabel.text = self.theData.cryptoData[decoded.ticker["base"]!]
+                        let base: String = decoded.ticker["base"]!
+                        let symbol: String = self.theData.cryptoData[decoded.ticker["base"]!]!
                         let target: String = self.theData.currencyData[decoded.ticker["target"]!]!
-                        let stringPrice: String = decoded.ticker["price"]!
-                        let doubledPrice: Double = Double(stringPrice)!
-                        let price = String(format: "%.2f", doubledPrice)
+                        let price: String = String(format: "%.2f", Double(decoded.ticker["price"]!)!)
+                        let change: String = String(format: "%.4f", Double(decoded.ticker["change"]!)!)
+                        self.symbolLabel.text = base
+                        self.nameLabel.text = symbol
                         self.priceLabel.text = (target + price)
-                        let stringChange: String = decoded.ticker["change"]!
-                        let doubledChange: Double = Double(stringChange)!
-                        let change = String(format: "%.4f", doubledChange)
                         self.changeLabel.text = change + "%"
-                        if doubledChange < 0 {
+                        if Double(change)! < 0 {
                             self.changeLabel.textColor = self.red
                         }
                         else {
