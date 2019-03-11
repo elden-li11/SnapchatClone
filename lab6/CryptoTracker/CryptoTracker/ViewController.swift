@@ -16,22 +16,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var changeLabel: UILabel!
     
-    let data = Data.init()
+    let theData = Data.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         fetchDataJSON()
-        display()
     }
-
-    func display() {
-        symbolLabel.text = data.cryptoData["BTC"]
-        nameLabel.text = data.cryptoNames[1]
-        priceLabel.text = data.currencyData["USD"] // + the price from api
-    }
-    
-    var fetchedData = [String?]()
     
     func fetchDataJSON() {
         guard let url = URL(string: "https://api.cryptonator.com/api/ticker/btc-usd") else {return}
@@ -40,21 +31,25 @@ class ViewController: UIViewController {
                 guard let data = data else {return}
                 do {
                     let decoded = try JSONDecoder().decode(Crypto.self, from: data)
-                    self.fetchedData.append(decoded.ticker["base"]!)
-                    self.fetchedData.append(decoded.ticker["target"]!)
-                    self.fetchedData.append(decoded.ticker["price"]!)
-                    self.fetchedData.append(decoded.ticker["volume"]!)
-                    self.fetchedData.append(decoded.ticker["change"]!)
-                    self.fetchedData.append(String(decoded.timestamp))
-                    self.fetchedData.append(String(decoded.success))
-                    print(self.fetchedData)
+                    DispatchQueue.main.async {
+                        self.symbolLabel.text = decoded.ticker["base"]
+                        self.nameLabel.text = self.theData.cryptoData[decoded.ticker["base"]!]
+                        let target: String = self.theData.currencyData[decoded.ticker["target"]!]!
+                        let stringPrice: String = decoded.ticker["price"]!
+                        let doubledPrice: Double = Double(stringPrice)!
+                        let price = String(format: "%.2f", doubledPrice)
+                        self.priceLabel.text = (target + price)
+                    }
                 } catch let jsonError {
                     print("Error serializing JSON: ", jsonError)
                 }
             }
-        }.resume()
+        }
+        task.resume()
     }
     
+
+
 
 }
 
