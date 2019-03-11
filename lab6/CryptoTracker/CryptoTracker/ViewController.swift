@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var changeLabel: UILabel!
     
     let theData = Data.init()
+    let red = UIColor.red
+    let green = UIColor.green
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +41,16 @@ class ViewController: UIViewController {
                         let doubledPrice: Double = Double(stringPrice)!
                         let price = String(format: "%.2f", doubledPrice)
                         self.priceLabel.text = (target + price)
+                        let stringChange: String = decoded.ticker["change"]!
+                        let doubledChange: Double = Double(stringChange)!
+                        let change = String(format: "%.4f", doubledChange)
+                        self.changeLabel.text = change + "%"
+                        if doubledChange < 0 {
+                            self.changeLabel.textColor = self.red
+                        }
+                        else {
+                            self.changeLabel.textColor = self.green
+                        }
                     }
                 } catch let jsonError {
                     print("Error serializing JSON: ", jsonError)
