@@ -10,14 +10,14 @@ import Foundation
 
 class Data {
     
-    let cryptoData = ["Bitcoin": "BTC",
-                      "Litecoin": "LTC",
-                      "Etherium": "ETH",
-                      "Bitcoin Cash": "BCH",
-                      "Ripple": "XRP",
-                      "ZCash": "ZEC",
-                      "Monero": "XMR",
-                      "Maker": "MKR"]
+    let cryptoData = ["BTC": "Bitcoin",
+                      "LTC": "Litecoin",
+                      "ETH": "Etherium",
+                      "BCH": "Bitcoin Cash",
+                      "XRP": "Ripple",
+                      "ZEC": "ZCash",
+                      "XMR": "Monero",
+                      "MKR": "Maker"]
     var cryptoNames:[String]!
     let currencyData = ["USD": "$",
                         "EUR": "€",
