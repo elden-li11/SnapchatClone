@@ -19,11 +19,15 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var currencySelect: UISegmentedControl!
     
+    var base: String = ""
+    var target: String = ""
+    
     @IBAction func currencySelectAction(_ sender: Any) {
-        
+        self.base = self.theData.currencyData[currencySelect.titleForSegment(at: currencySelect.selectedSegmentIndex)!]!
     }
     
     @IBAction func refreshButtonTouched(_ sender: Any) {
+        fetchDataJSON(self.base, self.target)
     }
     
     
@@ -34,11 +38,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        fetchDataJSON()
+        self.base = "BTC"
+        self.target = "USD"
+        fetchDataJSON(self.base, self.target)
     }
     
-    func fetchDataJSON() {
-        guard let url = URL(string: "https://api.cryptonator.com/api/ticker/btc-usd") else {return}
+    func fetchDataJSON(_ base: String,_ target: String) {
+        guard let url = URL(string: "https://api.cryptonator.com/api/ticker/" + base + "-" + target) else {return}
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if error == nil {
                 guard let data = data else {return}
