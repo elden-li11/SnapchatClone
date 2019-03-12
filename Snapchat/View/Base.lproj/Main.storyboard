@@ -164,6 +164,7 @@
                     <tabBarItem key="tabBarItem" title="Feeds" id="pOx-VL-kaW"/>
                     <connections>
                         <outlet property="feedsTableView" destination="M6G-49-JRG" id="VhJ-Yb-bUQ"/>
+                        <segue destination="SIh-3P-0Lb" kind="show" identifier="enlargeImage" id="Lnc-l5-m2l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9k-76-wbr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -192,7 +193,7 @@
                     </view>
                     <connections>
                         <outlet property="bigImage" destination="2MR-fc-mkU" id="L1h-20-Tv1"/>
-                        <segue destination="oh4-oP-yDM" kind="show" identifier="goBackToFeeds" id="LTS-ZS-b7j"/>
+                        <segue destination="oh4-oP-yDM" kind="show" identifier="minimizeImage" id="LTS-ZS-b7j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9un-3j-Rdz" userLabel="First Responder" sceneMemberID="firstResponder"/>

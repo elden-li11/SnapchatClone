@@ -19,7 +19,7 @@ class BigImageViewController: UIViewController {
     @IBOutlet weak var bigImage: UIButton!
     
     @IBAction func imagePressed(_ sender: Any) {
-        performSegue(withIdentifier: "goBackToFeeds", sender: sender)
+        performSegue(withIdentifier: "minimizeImage", sender: sender)
     }
     
 

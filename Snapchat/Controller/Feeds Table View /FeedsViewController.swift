@@ -24,6 +24,22 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "enlargeImage", sender: tableView)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "enlargeImage" {
+                if let dest = segue.destination as? BigImageViewController {
+                    if let button = sender as? UITableView {
+                        
+                    }
+                }
+            }
+        }
+    }
+    
     
     @IBOutlet weak var feedsTableView: UITableView!
     
@@ -34,8 +50,6 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
         feedsTableView.rowHeight = 70
         feedsTableView.delegate = self
         feedsTableView.dataSource = self
-        
-
         // Do any additional setup after loading the view.
     }
     
