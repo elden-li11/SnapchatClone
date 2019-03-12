@@ -9,7 +9,7 @@
 import Foundation
 
 class FeedStates {
-    var feeds: [String: [String]] = ["Landscapes": [],
+    public static var feeds: [String: [String]] = ["Landscapes": [],
                 "People": [],
                 "City Life": [],
                 "Animals": [],

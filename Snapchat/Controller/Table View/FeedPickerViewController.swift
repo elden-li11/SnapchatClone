@@ -67,7 +67,8 @@ class FeedPickerViewController: UIViewController, UITableViewDataSource, UITable
     func feedSentAlert() {
         let alertController = UIAlertController(title: "Successful", message: "You've sent " + imageName + " to " + feedName + ".", preferredStyle: UIAlertController.Style.alert)
         let backToImagesAction = UIAlertAction(title: "OK", style: .default) { (action: UIAlertAction!) -> Void in
-            _ = self.navigationController!.popToRootViewController(animated: true) 
+            _ = self.navigationController!.popToRootViewController(animated: true)
+            FeedStates.feeds[self.feedName]!.append(self.imageName)
         }
         alertController.addAction(backToImagesAction)
         self.present(alertController, animated: true, completion: nil)

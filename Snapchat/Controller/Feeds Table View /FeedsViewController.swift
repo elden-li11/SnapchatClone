@@ -9,21 +9,18 @@
 import UIKit
 
 class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    @IBOutlet weak var label: UILabel!
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.feeds.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "Feeds label", for: indexPath) as? FeedsViewCell {
-            if let feedsLabelCell = cell.feedsLabelCell {
-                feedsLabelCell.text
-               
-            }
-            return cell
-        }
+//
+//        if let cell = tableView.dequeueReusableCell(withIdentifier: "Feeds label", for: indexPath) as? FeedsViewCell {
+//            if let cellLabel = cell.textLabel {
+//
+//            }
+//            return cell
+//        }
         return UITableViewCell()
     }
     
