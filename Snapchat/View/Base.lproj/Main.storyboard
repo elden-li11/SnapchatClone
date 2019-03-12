@@ -112,25 +112,64 @@
         <!--Feeds-->
         <scene sceneID="Xmj-B0-HI4">
             <objects>
-                <viewController id="oh4-oP-yDM" sceneMemberID="viewController">
+                <viewController id="oh4-oP-yDM" customClass="FeedsViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7V4-G1-mWC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M6G-49-JRG">
-                                <rect key="frame" x="40" y="181" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M6G-49-JRG" userLabel="Feeds Table View">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Feeds label" rowHeight="75" id="Mbh-2k-zbd" userLabel="FeedsLabelCell" customClass="FeedsViewCellTableViewCell" customModule="Snapchat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mbh-2k-zbd" id="xpD-oV-1WW">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="74.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sEe-TQ-Vef">
+                                                    <rect key="frame" x="15" y="8" width="59" height="58"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Person" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMs-jo-T7X">
+                                                    <rect key="frame" x="82" y="11" width="54" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fK8-aW-tvW">
+                                                    <rect key="frame" x="82" y="45" width="86" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="M6G-49-JRG" firstAttribute="leading" secondItem="MQh-vL-ZK9" secondAttribute="leading" id="Kgc-hb-o2Q"/>
+                            <constraint firstItem="MQh-vL-ZK9" firstAttribute="trailing" secondItem="M6G-49-JRG" secondAttribute="trailing" id="mTC-UE-c7L"/>
+                            <constraint firstItem="M6G-49-JRG" firstAttribute="top" secondItem="MQh-vL-ZK9" secondAttribute="top" id="mtN-Vi-bRD"/>
+                            <constraint firstItem="MQh-vL-ZK9" firstAttribute="bottom" secondItem="M6G-49-JRG" secondAttribute="bottom" id="rxQ-yb-KXJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MQh-vL-ZK9"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feeds" id="pOx-VL-kaW"/>
+                    <connections>
+                        <outlet property="feedsTableView" destination="M6G-49-JRG" id="VhJ-Yb-bUQ"/>
+                        <outlet property="label" destination="gMs-jo-T7X" id="bcd-Tj-Kcr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9k-76-wbr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4606" y="1739"/>
+            <point key="canvasLocation" x="4605" y="1738.7323943661972"/>
         </scene>
         <!--Feed Picker View Controller-->
         <scene sceneID="o3K-ou-9Nf">
@@ -225,6 +264,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="pKe-OT-ugb"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GX8-4F-4iL">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
