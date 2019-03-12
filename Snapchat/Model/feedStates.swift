@@ -9,9 +9,19 @@
 import Foundation
 
 class FeedStates {
-    public static var feeds: [String: [String]] = ["Landscapes": [],
+    public static var feeds: [String: [imageState]] = ["Landscapes": [],
                 "People": [],
                 "City Life": [],
                 "Animals": [],
                 "CS198-01": []]
+}
+
+struct imageState {
+    let name: String
+    let timestamp: Date
+    
+    init(_ name: String, _ timestamp: Date) {
+        self.name = name
+        self.timestamp = timestamp
+    }
 }
