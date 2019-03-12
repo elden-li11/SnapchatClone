@@ -9,11 +9,17 @@
 import UIKit
 
 class BigImageViewController: UIViewController {
+    var imageName: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+    }
+    
+    @IBOutlet weak var bigImage: UIButton!
+    
+    @IBAction func imagePressed(_ sender: Any) {
+        performSegue(withIdentifier: "goBackToFeeds", sender: sender)
     }
     
 
