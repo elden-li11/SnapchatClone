@@ -98,7 +98,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="obW-Oh-IW8"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="zBT-zg-0Ac"/>
+                    <tabBarItem key="tabBarItem" title="Images" id="zBT-zg-0Ac"/>
                     <navigationItem key="navigationItem" id="52G-Wk-q2w"/>
                     <connections>
                         <outlet property="imagePickerCollectionView" destination="Bua-d5-iin" id="fZ4-dc-tu6"/>
@@ -109,7 +109,7 @@
             </objects>
             <point key="canvasLocation" x="4770" y="858.80281690140851"/>
         </scene>
-        <!--Item-->
+        <!--Feeds-->
         <scene sceneID="PRF-Jg-07T">
             <objects>
                 <tableViewController id="bn3-eh-YLb" sceneMemberID="viewController">
@@ -132,7 +132,7 @@
                             <outlet property="delegate" destination="bn3-eh-YLb" id="Z6V-Mk-AAm"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="NZM-cI-yBb"/>
+                    <tabBarItem key="tabBarItem" title="Feeds" id="NZM-cI-yBb"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S62-Oa-31u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
