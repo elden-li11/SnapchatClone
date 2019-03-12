@@ -9,7 +9,9 @@
 import UIKit
 
 class FeedPickerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     @IBOutlet weak var feedPickerTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         feedPickerTableView.rowHeight = 70

@@ -17,6 +17,8 @@
 		6CE9AEE6222CA97500F4A3C1 /* ImagePickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE9AEE5222CA97500F4A3C1 /* ImagePickerViewCell.swift */; };
 		6CE9AEE8222CB6EC00F4A3C1 /* FeedPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE9AEE7222CB6EC00F4A3C1 /* FeedPickerViewController.swift */; };
 		6CE9AEEC222DF6AF00F4A3C1 /* FeedPickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE9AEEB222DF6AF00F4A3C1 /* FeedPickerViewCell.swift */; };
+		A2B4BF4E2237884700E0C155 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4BF4D2237884700E0C155 /* FeedsViewController.swift */; };
+		A2B4BF5022378AF400E0C155 /* FeedsViewCelll.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4BF4F22378AF400E0C155 /* FeedsViewCelll.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		6CE9AEE5222CA97500F4A3C1 /* ImagePickerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewCell.swift; sourceTree = "<group>"; };
 		6CE9AEE7222CB6EC00F4A3C1 /* FeedPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPickerViewController.swift; sourceTree = "<group>"; };
 		6CE9AEEB222DF6AF00F4A3C1 /* FeedPickerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPickerViewCell.swift; sourceTree = "<group>"; };
+		A2B4BF4D2237884700E0C155 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
+		A2B4BF4F22378AF400E0C155 /* FeedsViewCelll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewCelll.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 				6CE9AEE4222CA8DD00F4A3C1 /* Table View */,
 				6CE9AEE3222CA8CD00F4A3C1 /* Collection View */,
 				6C8FC9042237823A00939639 /* TabBarViewController.swift */,
+				A2B4BF4A2237878A00E0C155 /* Feeds Table View  */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -117,6 +122,15 @@
 				6CE9AEEB222DF6AF00F4A3C1 /* FeedPickerViewCell.swift */,
 			);
 			path = "Table View";
+			sourceTree = "<group>";
+		};
+		A2B4BF4A2237878A00E0C155 /* Feeds Table View  */ = {
+			isa = PBXGroup;
+			children = (
+				A2B4BF4D2237884700E0C155 /* FeedsViewController.swift */,
+				A2B4BF4F22378AF400E0C155 /* FeedsViewCelll.swift */,
+			);
+			path = "Feeds Table View ";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,12 +204,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2B4BF5022378AF400E0C155 /* FeedsViewCelll.swift in Sources */,
 				6CE9AEEC222DF6AF00F4A3C1 /* FeedPickerViewCell.swift in Sources */,
 				6CE9AEE6222CA97500F4A3C1 /* ImagePickerViewCell.swift in Sources */,
 				6CE9AEDF222CA54100F4A3C1 /* ImagePickerViewController.swift in Sources */,
 				6BDA0FE022289A740035D08B /* Data.swift in Sources */,
 				6C8FC9052237823A00939639 /* TabBarViewController.swift in Sources */,
 				6BDA0FCE22289A3D0035D08B /* AppDelegate.swift in Sources */,
+				A2B4BF4E2237884700E0C155 /* FeedsViewController.swift in Sources */,
 				6CE9AEE8222CB6EC00F4A3C1 /* FeedPickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
