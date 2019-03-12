@@ -221,10 +221,10 @@
             </objects>
             <point key="canvasLocation" x="5655" y="858.80281690140851"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="bcE-FV-gw5">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="dkP-1C-pkC" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="dkP-1C-pkC" customClass="TabBarViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="pKe-OT-ugb"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GX8-4F-4iL">

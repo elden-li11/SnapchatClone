@@ -12,6 +12,7 @@
 		6BDA0FD522289A3E0035D08B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BDA0FD422289A3E0035D08B /* Assets.xcassets */; };
 		6BDA0FD822289A3E0035D08B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BDA0FD622289A3E0035D08B /* LaunchScreen.storyboard */; };
 		6BDA0FE022289A740035D08B /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDA0FDF22289A740035D08B /* Data.swift */; };
+		6C8FC9052237823A00939639 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8FC9042237823A00939639 /* TabBarViewController.swift */; };
 		6CE9AEDF222CA54100F4A3C1 /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE9AEDE222CA54100F4A3C1 /* ImagePickerViewController.swift */; };
 		6CE9AEE6222CA97500F4A3C1 /* ImagePickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE9AEE5222CA97500F4A3C1 /* ImagePickerViewCell.swift */; };
 		6CE9AEE8222CB6EC00F4A3C1 /* FeedPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE9AEE7222CB6EC00F4A3C1 /* FeedPickerViewController.swift */; };
@@ -26,6 +27,7 @@
 		6BDA0FD722289A3E0035D08B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6BDA0FD922289A3E0035D08B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BDA0FDF22289A740035D08B /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		6C8FC9042237823A00939639 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		6CE9AEDE222CA54100F4A3C1 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImagePickerViewController.swift; path = "Snapchat/Controller/Collection View/ImagePickerViewController.swift"; sourceTree = SOURCE_ROOT; };
 		6CE9AEE5222CA97500F4A3C1 /* ImagePickerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewCell.swift; sourceTree = "<group>"; };
 		6CE9AEE7222CB6EC00F4A3C1 /* FeedPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPickerViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			children = (
 				6CE9AEE4222CA8DD00F4A3C1 /* Table View */,
 				6CE9AEE3222CA8CD00F4A3C1 /* Collection View */,
+				6C8FC9042237823A00939639 /* TabBarViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				6CE9AEE6222CA97500F4A3C1 /* ImagePickerViewCell.swift in Sources */,
 				6CE9AEDF222CA54100F4A3C1 /* ImagePickerViewController.swift in Sources */,
 				6BDA0FE022289A740035D08B /* Data.swift in Sources */,
+				6C8FC9052237823A00939639 /* TabBarViewController.swift in Sources */,
 				6BDA0FCE22289A3D0035D08B /* AppDelegate.swift in Sources */,
 				6CE9AEE8222CB6EC00F4A3C1 /* FeedPickerViewController.swift in Sources */,
 			);
