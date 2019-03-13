@@ -18,11 +18,6 @@ class FeedsViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        if !opened {
-            imageStatus.image = UIImage(named: "unread")
-        } else {
-            imageStatus.image = UIImage(named: "read")
-        }
         // Initialization code
     }
 
@@ -30,5 +25,12 @@ class FeedsViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
-
-}
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if !opened {
+            imageStatus.image = UIImage(named: "unread")
+        } else {
+            imageStatus.image = UIImage(named: "read")
+        }
+    }}
