@@ -9,18 +9,18 @@
 import UIKit
 
 class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    var imageSelected = ""
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.feeds.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//        if let cell = tableView.dequeueReusableCell(withIdentifier: "Feeds label", for: indexPath) as? FeedsViewCell {
-//            if let cellLabel = cell.textLabel {
-//
-//            }
-//            return cell
-//        }
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "Feeds label", for: indexPath) as? FeedsViewCell {
+            if let personLabel = cell.personLabel {
+                personLabel.text = data.feeds[indexPath.row]
+                print("did it")
+            }
+        }
         return UITableViewCell()
     }
     
@@ -32,8 +32,8 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
         if let identifier = segue.identifier {
             if identifier == "enlargeImage" {
                 if let dest = segue.destination as? BigImageViewController {
-                    if let button = sender as? UITableView {
-                        
+                    if let button = sender as? UITableViewCell {
+                        dest.imageName = "TO BE CHANGED"
                     }
                 }
             }

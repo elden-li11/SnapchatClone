@@ -9,11 +9,13 @@
 import UIKit
 
 class FeedsViewCell: UITableViewCell {
-
-    
+    @IBOutlet weak var personLabel: UILabel!
+    @IBOutlet weak var timestampCell: UILabel!
+    @IBOutlet weak var unreadImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        unreadImage.image = UIImage(named: "unread")
         // Initialization code
         
     }

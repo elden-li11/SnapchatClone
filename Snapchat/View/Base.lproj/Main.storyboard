@@ -121,7 +121,7 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Feeds label" rowHeight="75" id="Mbh-2k-zbd" userLabel="FeedsLabelCell" customClass="FeedsViewCellTableViewCell" customModule="Snapchat" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Feeds label" rowHeight="75" id="Mbh-2k-zbd" userLabel="FeedsLabelCell" customClass="FeedsViewCell" customModule="Snapchat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mbh-2k-zbd" id="xpD-oV-1WW">
@@ -148,6 +148,11 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="personLabel" destination="gMs-jo-T7X" id="Rqw-aI-XEU"/>
+                                            <outlet property="timestampCell" destination="fK8-aW-tvW" id="H2I-3M-RKH"/>
+                                            <outlet property="unreadImage" destination="sEe-TQ-Vef" id="grv-Dm-srC"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
