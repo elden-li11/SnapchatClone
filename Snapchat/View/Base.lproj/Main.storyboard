@@ -128,25 +128,37 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="74.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sEe-TQ-Vef">
-                                                    <rect key="frame" x="15" y="8" width="59" height="58"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sEe-TQ-Vef">
+                                                    <rect key="frame" x="10" y="8" width="59" height="58.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="59" id="P8n-uj-0Ay"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Person" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMs-jo-T7X">
-                                                    <rect key="frame" x="82" y="11" width="54" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Person" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMs-jo-T7X">
+                                                    <rect key="frame" x="79" y="16" width="226" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fK8-aW-tvW">
-                                                    <rect key="frame" x="82" y="45" width="86" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fK8-aW-tvW">
+                                                    <rect key="frame" x="79" y="48.5" width="241" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="fK8-aW-tvW" secondAttribute="bottom" constant="5" id="81G-DU-D7O"/>
+                                                <constraint firstItem="gMs-jo-T7X" firstAttribute="top" secondItem="xpD-oV-1WW" secondAttribute="topMargin" constant="5" id="J7m-dF-Ly7"/>
+                                                <constraint firstItem="fK8-aW-tvW" firstAttribute="top" secondItem="gMs-jo-T7X" secondAttribute="bottom" constant="13" id="cWK-pu-Pfx"/>
+                                                <constraint firstItem="fK8-aW-tvW" firstAttribute="leading" secondItem="sEe-TQ-Vef" secondAttribute="trailing" constant="10" id="dBt-De-DLC"/>
+                                                <constraint firstAttribute="trailing" secondItem="fK8-aW-tvW" secondAttribute="trailing" id="e38-B3-eF5"/>
+                                                <constraint firstItem="sEe-TQ-Vef" firstAttribute="top" secondItem="xpD-oV-1WW" secondAttribute="top" constant="8" id="g5Q-4a-5i2"/>
+                                                <constraint firstItem="sEe-TQ-Vef" firstAttribute="leading" secondItem="xpD-oV-1WW" secondAttribute="leading" constant="10" id="hye-QL-Ymq"/>
+                                                <constraint firstAttribute="bottom" secondItem="sEe-TQ-Vef" secondAttribute="bottom" constant="8" id="o8u-OR-8d4"/>
+                                                <constraint firstItem="gMs-jo-T7X" firstAttribute="leading" secondItem="sEe-TQ-Vef" secondAttribute="trailing" constant="10" id="qFg-Oi-2DO"/>
+                                                <constraint firstItem="gMs-jo-T7X" firstAttribute="trailing" secondItem="xpD-oV-1WW" secondAttribute="trailingMargin" id="vE4-5D-rmo"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="personLabel" destination="gMs-jo-T7X" id="Rqw-aI-XEU"/>
@@ -316,6 +328,7 @@
         <image name="goButton" width="132" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Lnc-l5-m2l"/>
         <segue reference="LTS-ZS-b7j"/>
     </inferredMetricsTieBreakers>
 </document>
