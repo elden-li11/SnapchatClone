@@ -17,6 +17,7 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "Feeds label", for: indexPath) as? FeedsViewCell {
+            
             let currImage = FeedStates.imagesPosted[indexPath.row]
             cell.imageName = currImage.name
             cell.timestampLabel.text = String(currImage.timestamp.description)
