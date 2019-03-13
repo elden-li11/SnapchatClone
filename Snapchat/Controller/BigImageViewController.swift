@@ -10,6 +10,7 @@ import UIKit
 
 class BigImageViewController: UIViewController {
     var imageName: String = ""
+    var timeStamp: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,6 @@ class BigImageViewController: UIViewController {
     @IBAction func imagePressed(_ sender: Any) {
         _ = navigationController?.popViewController(animated: true)
     }
-    
 
     /*
     // MARK: - Navigation

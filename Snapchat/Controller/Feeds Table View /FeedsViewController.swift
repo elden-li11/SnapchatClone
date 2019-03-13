@@ -21,25 +21,25 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
             cell.imageName = currImage.name
             cell.timestampLabel.text = String(currImage.timestamp.description)
             cell.feedName = currImage.feed
+            cell.opened = currImage.opened
             cell.personLabel.text = "Arman and Elden"
             print("updated cell")
+            print(FeedStates.imagesPosted)
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "enlargeImage", sender: tableView)
+        let currImage = FeedStates.imagesPosted[indexPath.row]
+        FeedStates.imagesPosted[indexPath.row].opened = true
+        performSegue(withIdentifier: "enlargeImage", sender: currImage.name)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let identifier = segue.identifier {
-            if identifier == "enlargeImage" {
-                if let dest = segue.destination as? BigImageViewController {
-                    if let cell = sender as? FeedsViewCell {
-                        dest.imageName = cell.imageName
-                    }
-                }
+        if let dest = segue.destination as? BigImageViewController {
+            if let cell = sender as? String {
+                dest.imageName = cell
             }
         }
     }
@@ -70,5 +70,4 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Pass the selected object to the new view controller.
     }
     */
-
 }

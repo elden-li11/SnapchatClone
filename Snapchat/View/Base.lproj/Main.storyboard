@@ -161,9 +161,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="imageStatus" destination="sEe-TQ-Vef" id="oAz-1J-q2Z"/>
                                             <outlet property="personLabel" destination="gMs-jo-T7X" id="Rqw-aI-XEU"/>
                                             <outlet property="timestampLabel" destination="fK8-aW-tvW" id="Pg7-g0-UnV"/>
-                                            <outlet property="unreadImage" destination="sEe-TQ-Vef" id="grv-Dm-srC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
