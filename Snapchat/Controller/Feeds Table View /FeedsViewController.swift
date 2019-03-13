@@ -17,6 +17,7 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "Feeds label", for: indexPath) as? FeedsViewCell {
+            
             let currImage = FeedStates.imagesPosted[indexPath.row]
             cell.imageName = currImage.name
             cell.timestampLabel.text = String(currImage.timestamp.description)
@@ -29,17 +30,14 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "enlargeImage", sender: tableView)
+         let currImage = FeedStates.imagesPosted[indexPath.row]
+        performSegue(withIdentifier: "enlargeImage", sender: currImage.name)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let identifier = segue.identifier {
-            if identifier == "enlargeImage" {
-                if let dest = segue.destination as? BigImageViewController {
-                    if let cell = sender as? FeedsViewCell {
-                        dest.imageName = cell.imageName
-                    }
-                }
+        if let dest = segue.destination as? BigImageViewController {
+            if let cell = sender as? String {
+                dest.imageName = cell
             }
         }
     }
