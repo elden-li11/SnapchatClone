@@ -198,6 +198,8 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2MR-fc-mkU">
                                 <rect key="frame" x="10" y="145" width="300" height="298"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Big Image"/>
                                 <connections>
                                     <action selector="imagePressed:" destination="SIh-3P-0Lb" eventType="touchUpInside" id="wIb-3q-Tiv"/>
