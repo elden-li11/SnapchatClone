@@ -196,9 +196,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2MR-fc-mkU">
-                                <rect key="frame" x="16" y="142" width="288" height="284"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2MR-fc-mkU">
+                                <rect key="frame" x="10" y="145" width="300" height="298"/>
                                 <state key="normal" title="Big Image"/>
                                 <connections>
                                     <action selector="imagePressed:" destination="SIh-3P-0Lb" eventType="touchUpInside" id="wIb-3q-Tiv"/>
@@ -206,6 +205,14 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2MR-fc-mkU" firstAttribute="leading" secondItem="WHE-19-d2L" secondAttribute="leading" constant="10" id="AUh-h1-Uev"/>
+                            <constraint firstItem="WHE-19-d2L" firstAttribute="trailing" secondItem="2MR-fc-mkU" secondAttribute="trailing" constant="10" id="MJL-Gu-bAZ"/>
+                            <constraint firstItem="WHE-19-d2L" firstAttribute="bottom" secondItem="2MR-fc-mkU" secondAttribute="bottom" constant="125" id="O4N-wv-LrZ"/>
+                            <constraint firstItem="2MR-fc-mkU" firstAttribute="centerY" secondItem="WHE-19-d2L" secondAttribute="centerY" id="aYO-Hk-eCk"/>
+                            <constraint firstItem="2MR-fc-mkU" firstAttribute="centerX" secondItem="WHE-19-d2L" secondAttribute="centerX" id="gEP-n5-FB3"/>
+                            <constraint firstItem="2MR-fc-mkU" firstAttribute="top" secondItem="WHE-19-d2L" secondAttribute="top" constant="125" id="juK-fm-s34"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="WHE-19-d2L"/>
                     </view>
                     <connections>
@@ -328,7 +335,6 @@
         <image name="goButton" width="132" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Lnc-l5-m2l"/>
         <segue reference="LTS-ZS-b7j"/>
     </inferredMetricsTieBreakers>
 </document>
