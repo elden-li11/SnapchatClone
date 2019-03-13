@@ -10,8 +10,10 @@ import UIKit
 
 class FeedsViewCell: UITableViewCell {
     @IBOutlet weak var personLabel: UILabel!
-    @IBOutlet weak var timestampCell: UILabel!
+    @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var unreadImage: UIImageView!
+    var imageName: String = ""
+    var feedName: String = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()

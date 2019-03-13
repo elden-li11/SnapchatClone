@@ -9,19 +9,17 @@
 import Foundation
 
 class FeedStates {
-    public static var feeds: [String: [imageState]] = ["Landscapes": [],
-                "People": [],
-                "City Life": [],
-                "Animals": [],
-                "CS198-01": []]
+    public static var imagesPosted: [imageState] = []
 }
 
 struct imageState {
     let name: String
     let timestamp: Date
+    let feed: String
     
-    init(_ name: String, _ timestamp: Date) {
+    init(_ name: String, _ timestamp: Date, _ feed: String) {
         self.name = name
         self.timestamp = timestamp
+        self.feed = feed
     }
 }

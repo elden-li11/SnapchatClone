@@ -162,7 +162,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="personLabel" destination="gMs-jo-T7X" id="Rqw-aI-XEU"/>
-                                            <outlet property="timestampCell" destination="fK8-aW-tvW" id="H2I-3M-RKH"/>
+                                            <outlet property="timestampLabel" destination="fK8-aW-tvW" id="Pg7-g0-UnV"/>
                                             <outlet property="unreadImage" destination="sEe-TQ-Vef" id="grv-Dm-srC"/>
                                         </connections>
                                     </tableViewCell>

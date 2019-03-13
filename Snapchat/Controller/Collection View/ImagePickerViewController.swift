@@ -50,6 +50,5 @@ class ImagePickerViewController: UIViewController, UICollectionViewDataSource, U
                 }
             }
         }
-        print(FeedStates.feeds)
     }
 }

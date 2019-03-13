@@ -10,16 +10,19 @@ import UIKit
 
 class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var imageSelected = ""
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.feeds.count
+        return FeedStates.imagesPosted.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "Feeds label", for: indexPath) as? FeedsViewCell {
-            if let personLabel = cell.personLabel {
-                personLabel.text = data.feeds[indexPath.row]
-                print("did it")
-            }
+            let currImage = FeedStates.imagesPosted[indexPath.row]
+            cell.imageName = currImage.name
+            cell.timestampLabel.text = String(currImage.timestamp.description)
+            cell.feedName = currImage.feed
+            cell.personLabel.text = "Arman and Elden"
+            print("updated cell")
             return cell
         }
         return UITableViewCell()
@@ -33,7 +36,9 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
         if let identifier = segue.identifier {
             if identifier == "enlargeImage" {
                 if let dest = segue.destination as? BigImageViewController {
-                    dest.imageName = "waves"
+                    if let cell = sender as? FeedsViewCell {
+                        dest.imageName = cell.imageName
+                    }
                 }
             }
         }
@@ -52,6 +57,9 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.feedsTableView.reloadData()
+    }
 
     /*
     // MARK: - Navigation

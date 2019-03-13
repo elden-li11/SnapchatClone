@@ -13,6 +13,7 @@ class BigImageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(imageName)
         bigImage.setImage(UIImage(named: imageName), for: UIControl.State.normal)
         // Do any additional setup after loading the view.
     }
