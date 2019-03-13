@@ -13,13 +13,14 @@ class BigImageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        bigImage.setImage(UIImage(named: imageName), for: UIControl.State.normal)
         // Do any additional setup after loading the view.
     }
     
     @IBOutlet weak var bigImage: UIButton!
     
     @IBAction func imagePressed(_ sender: Any) {
-        performSegue(withIdentifier: "minimizeImage", sender: sender)
+        _ = navigationController?.popViewController(animated: true)
     }
     
 
