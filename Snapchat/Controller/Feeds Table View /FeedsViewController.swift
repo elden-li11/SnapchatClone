@@ -37,10 +37,10 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
             let currImage = FeedStates.imagesPosted[indexPath.row]
             print(FeedStates.imagesPosted)
             cell.opened = currImage.opened
-            if (currImage.opened == false) {
+            if (cell.opened == false) {
                 cell.imageName = "unread"
             }
-            if (currImage.opened == true) {
+            if (cell.opened == true) {
                 cell.imageName = "read"
             }
             cell.timestampLabel.text = String(currImage.timestamp.description)
@@ -53,11 +53,13 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var currImage = FeedStates.imagesPosted[indexPath.row]
-        FeedStates.imagesPosted[indexPath.row].opened = true
-        performSegue(withIdentifier: "enlargeImage", sender: currImage)
-        print(FeedStates.imagesPosted[indexPath.row])
-        print("performing segueway maximize image")
+        let currImage = FeedStates.imagesPosted[indexPath.row]
+        if !currImage.opened {
+            FeedStates.imagesPosted[indexPath.row].opened = true
+            performSegue(withIdentifier: "enlargeImage", sender: currImage)
+        } else {
+            alreadyOpenedAlert()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -82,9 +84,16 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.feedsTableView.reloadData()
     }
-
+    
+    func alreadyOpenedAlert() {
+        let alertController = UIAlertController(title: "Oops.", message: "You've already opened this snap.", preferredStyle: UIAlertController.Style.alert)
+        alertController.addAction(UIAlertAction(title: "Understood", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
