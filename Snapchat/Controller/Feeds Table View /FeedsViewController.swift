@@ -9,37 +9,62 @@
 import UIKit
 
 class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     var imageSelected = ""
+    let data = Data()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return FeedStates.imagesPosted.count
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let data = Data()
+        switch section {
+        case 0: return data.feeds[0]
+        case 1: return data.feeds[1]
+        case 2: return data.feeds[2]
+        case 3: return data.feeds[3]
+        case 4: return data.feeds[4]
+        case 5: return data.feeds[5]
+        default: break
+        }
+        return String(section)
+    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "Feeds label", for: indexPath) as? FeedsViewCell {
             let currImage = FeedStates.imagesPosted[indexPath.row]
-            cell.imageName = currImage.name
+            print(FeedStates.imagesPosted)
+            cell.opened = currImage.opened
+            if (currImage.opened == false) {
+                cell.imageName = "unread"
+            }
+            if (currImage.opened == true) {
+                cell.imageName = "read"
+            }
             cell.timestampLabel.text = String(currImage.timestamp.description)
             cell.feedName = currImage.feed
             cell.personLabel.text = "Arman and Elden"
             print("updated cell")
-            if (cell.opened == true) {
-                cell.imageName = "read"
-            }
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         let currImage = FeedStates.imagesPosted[indexPath.row]
-        performSegue(withIdentifier: "enlargeImage", sender: currImage.name)
+        var currImage = FeedStates.imagesPosted[indexPath.row]
+        FeedStates.imagesPosted[indexPath.row].opened = true
+        performSegue(withIdentifier: "enlargeImage", sender: currImage)
+        print(FeedStates.imagesPosted[indexPath.row])
+        print("performing segueway maximize image")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? BigImageViewController {
-            if let cell = sender as? String {
-                dest.imageName = cell
+            if var cell = sender as? imageState {
+                dest.imageName = cell.name
+                cell.opened = true
             }
         }
     }
@@ -47,7 +72,6 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     @IBOutlet weak var feedsTableView: UITableView!
     
-    let data = Data.init()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,5 +94,4 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Pass the selected object to the new view controller.
     }
     */
-
 }

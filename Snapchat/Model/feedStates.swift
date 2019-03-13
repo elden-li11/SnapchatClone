@@ -16,10 +16,12 @@ struct imageState {
     let name: String
     let timestamp: Date
     let feed: String
+    var opened: Bool
     
     init(_ name: String, _ timestamp: Date, _ feed: String) {
         self.name = name
         self.timestamp = timestamp
         self.feed = feed
+        self.opened = false
     }
 }
