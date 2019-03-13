@@ -20,6 +20,7 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
                 personLabel.text = data.feeds[indexPath.row]
                 print("did it")
             }
+            return cell
         }
         return UITableViewCell()
     }
