@@ -117,12 +117,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M6G-49-JRG" userLabel="Feeds Table View">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="M6G-49-JRG" userLabel="Feeds Table View">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Feeds label" rowHeight="75" id="Mbh-2k-zbd" userLabel="FeedsLabelCell" customClass="FeedsViewCell" customModule="Snapchat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="75"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mbh-2k-zbd" id="xpD-oV-1WW">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="74.5"/>
@@ -171,9 +171,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="M6G-49-JRG" firstAttribute="leading" secondItem="MQh-vL-ZK9" secondAttribute="leading" id="BEx-4h-ZC9"/>
+                            <constraint firstItem="M6G-49-JRG" firstAttribute="top" secondItem="MQh-vL-ZK9" secondAttribute="top" id="GAx-Jr-puq"/>
                             <constraint firstItem="M6G-49-JRG" firstAttribute="leading" secondItem="MQh-vL-ZK9" secondAttribute="leading" id="Kgc-hb-o2Q"/>
+                            <constraint firstItem="M6G-49-JRG" firstAttribute="trailing" secondItem="MQh-vL-ZK9" secondAttribute="trailing" id="eEx-FN-Ha6"/>
                             <constraint firstItem="MQh-vL-ZK9" firstAttribute="trailing" secondItem="M6G-49-JRG" secondAttribute="trailing" id="mTC-UE-c7L"/>
-                            <constraint firstItem="M6G-49-JRG" firstAttribute="top" secondItem="MQh-vL-ZK9" secondAttribute="top" id="mtN-Vi-bRD"/>
                             <constraint firstItem="MQh-vL-ZK9" firstAttribute="bottom" secondItem="M6G-49-JRG" secondAttribute="bottom" id="rxQ-yb-KXJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MQh-vL-ZK9"/>
@@ -337,6 +339,7 @@
         <image name="goButton" width="132" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Lnc-l5-m2l"/>
         <segue reference="LTS-ZS-b7j"/>
     </inferredMetricsTieBreakers>
 </document>

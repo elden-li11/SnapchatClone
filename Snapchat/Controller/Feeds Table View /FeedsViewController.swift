@@ -17,6 +17,10 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
         return FeedStates.imagesPosted.count
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return data.feeds.count
+    }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let data = Data()
         switch section {
@@ -30,6 +34,15 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         return String(section)
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 25
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 25
+    }
+    
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
