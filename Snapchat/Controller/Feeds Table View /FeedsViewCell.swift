@@ -14,6 +14,7 @@ class FeedsViewCell: UITableViewCell {
     @IBOutlet weak var unreadImage: UIImageView!
     var imageName: String = ""
     var feedName: String = ""
+    var opened: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
