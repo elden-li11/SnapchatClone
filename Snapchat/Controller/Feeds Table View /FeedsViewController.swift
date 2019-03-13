@@ -33,7 +33,9 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
         if let identifier = segue.identifier {
             if identifier == "enlargeImage" {
                 if let dest = segue.destination as? BigImageViewController {
-                    dest.imageName = "waves"
+                    print("about to change image")
+                    dest.imageName = "lion"
+                    print("image set to " + dest.imageName)
                 }
             }
         }
