@@ -9,7 +9,11 @@
 import Foundation
 
 class FeedStates {
-    public static var imagesPosted: [imageState] = []
+    public static var imagesPosted: [String: [imageState]] = ["Landscapes": [],
+                                                              "People": [],
+                                                              "City Life": [],
+                                                              "Animals": [],
+                                                              "CS198-01": []]
 }
 
 struct imageState {

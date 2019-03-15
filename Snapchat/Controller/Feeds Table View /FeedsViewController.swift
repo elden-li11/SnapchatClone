@@ -14,7 +14,7 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     let data = Data()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return FeedStates.imagesPosted.count
+        return FeedStates.imagesPosted[data.feeds[section]]!.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -46,28 +46,37 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "Feeds label", for: indexPath) as? FeedsViewCell {
-            let currImage = FeedStates.imagesPosted[indexPath.row]
+            let feedName: String = data.feeds[indexPath.section]
+//            indexPath.section.
+//            let posts: Array = FeedStates.imagesPosted[feedName]!
+            print("row " + String(indexPath.row))
+            print("feed " + feedName)
+            if let posts = FeedStates.imagesPosted[feedName] {
+                let post = posts[indexPath.row]
+                cell.opened = post.opened
+                if (cell.opened == false) {
+                    cell.imageName = "unread"
+                }
+                if (cell.opened == true) {
+                    cell.imageName = "read"
+                }
+                cell.timestampLabel.text = post.timestamp.description
+                cell.feedName = post.feed
+                cell.personLabel.text = "Arman and Elden"
+            }
+//            let currImage: imageState = FeedStates.imagesPosted[feedName]![indexPath.row]
             print(FeedStates.imagesPosted)
-            cell.opened = currImage.opened
-            if (cell.opened == false) {
-                cell.imageName = "unread"
-            }
-            if (cell.opened == true) {
-                cell.imageName = "read"
-            }
-            cell.timestampLabel.text = currImage.timestamp.description
-            cell.feedName = currImage.feed
-            cell.personLabel.text = "Arman and Elden"
-            print("updated cell")
+//            print("updated cell")
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let currImage = FeedStates.imagesPosted[indexPath.row]
+        let feedName: String = data.feeds[indexPath.section]
+        let currImage = FeedStates.imagesPosted[feedName]![indexPath.row]
         if !currImage.opened {
-            FeedStates.imagesPosted[indexPath.row].opened = true
+            FeedStates.imagesPosted[feedName]![indexPath.row].opened = true
             performSegue(withIdentifier: "enlargeImage", sender: currImage)
         } else {
             alreadyOpenedAlert()

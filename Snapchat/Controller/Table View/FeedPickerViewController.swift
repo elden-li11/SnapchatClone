@@ -69,7 +69,7 @@ class FeedPickerViewController: UIViewController, UITableViewDataSource, UITable
         let backToImagesAction = UIAlertAction(title: "OK", style: .default) { (action: UIAlertAction!) -> Void in
             _ = self.navigationController!.popToRootViewController(animated: true)
             let imageToSend: imageState = imageState.init(self.imageName, Date(), self.feedName)
-            FeedStates.imagesPosted.append(imageToSend)
+            FeedStates.imagesPosted[self.feedName]?.append(imageToSend)
         }
         alertController.addAction(backToImagesAction)
         self.present(alertController, animated: true, completion: nil)
