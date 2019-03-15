@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CryptoTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitcoin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKG-Wd-RQw">
+                                <rect key="frame" x="16" y="126" width="382" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$000.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="CIm-aq-tjd">
+                                <rect key="frame" x="16" y="414.5" width="382" height="77"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="64"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0m-hk-Bnr">
+                                <rect key="frame" x="16" y="60" width="382" height="58"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-100.000%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="UrA-Z6-pSF">
+                                <rect key="frame" x="16" y="499.5" width="382" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PXI-3o-4gK">
+                                <rect key="frame" x="20" y="834" width="295" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="295" id="GqX-LW-iu4"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="USD"/>
+                                    <segment title="EUR"/>
+                                    <segment title="GBP"/>
+                                </segments>
+                                <connections>
+                                    <action selector="currencySelectAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="qIO-bV-Ter"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Buh-jM-uMX">
+                                <rect key="frame" x="335" y="831" width="63" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Refresh"/>
+                                <connections>
+                                    <action selector="refreshButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Ge-H4-apG"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scw-z3-jBm">
+                                <rect key="frame" x="0.0" y="571" width="414" height="216"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="h0m-hk-Bnr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1L0-4g-kH2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BKG-Wd-RQw" secondAttribute="trailing" constant="16" id="1iO-X1-Wxk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h0m-hk-Bnr" secondAttribute="trailing" constant="16" id="5aR-Ka-gNC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Buh-jM-uMX" secondAttribute="trailing" constant="16" id="As1-dq-vEb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CIm-aq-tjd" secondAttribute="trailing" constant="16" id="B5O-Ku-vjU"/>
+                            <constraint firstItem="Buh-jM-uMX" firstAttribute="leading" secondItem="PXI-3o-4gK" secondAttribute="trailing" constant="20" id="CSn-s8-Pkf"/>
+                            <constraint firstItem="BKG-Wd-RQw" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="DCF-gu-O4X"/>
+                            <constraint firstItem="scw-z3-jBm" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Nv3-vQ-6ex"/>
+                            <constraint firstItem="Buh-jM-uMX" firstAttribute="top" secondItem="scw-z3-jBm" secondAttribute="bottom" constant="44" id="SOQ-4h-uAY"/>
+                            <constraint firstItem="scw-z3-jBm" firstAttribute="top" secondItem="UrA-Z6-pSF" secondAttribute="bottom" constant="42.5" id="UFm-rO-RJR"/>
+                            <constraint firstItem="PXI-3o-4gK" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="WUb-LC-kMv"/>
+                            <constraint firstAttribute="bottom" secondItem="Buh-jM-uMX" secondAttribute="bottom" constant="32" id="XTS-gV-kIc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UrA-Z6-pSF" secondAttribute="trailing" constant="16" id="bsL-c1-Kn4"/>
+                            <constraint firstItem="CIm-aq-tjd" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="d6l-Cq-Pen"/>
+                            <constraint firstItem="h0m-hk-Bnr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="kk1-SO-ndd"/>
+                            <constraint firstItem="BKG-Wd-RQw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ktB-Z2-7u5"/>
+                            <constraint firstItem="BKG-Wd-RQw" firstAttribute="top" secondItem="h0m-hk-Bnr" secondAttribute="bottom" constant="8" id="oBC-v6-ZKn"/>
+                            <constraint firstItem="h0m-hk-Bnr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ozC-dF-ekx"/>
+                            <constraint firstItem="UrA-Z6-pSF" firstAttribute="top" secondItem="CIm-aq-tjd" secondAttribute="bottom" constant="8" id="pP0-gY-RRP"/>
+                            <constraint firstItem="CIm-aq-tjd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="rRM-Px-zI7"/>
+                            <constraint firstItem="scw-z3-jBm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rXU-2s-y7e"/>
+                            <constraint firstItem="UrA-Z6-pSF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="teD-oB-9VL"/>
+                            <constraint firstItem="UrA-Z6-pSF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="uzQ-Y7-SX5"/>
+                            <constraint firstItem="PXI-3o-4gK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="wmA-n7-GJT"/>
+                            <constraint firstItem="CIm-aq-tjd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="zPn-bq-zRt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="changeLabel" destination="UrA-Z6-pSF" id="hUt-kf-9hm"/>
+                        <outlet property="cryptoPicker" destination="scw-z3-jBm" id="UJe-Ot-VkP"/>
+                        <outlet property="currencySelect" destination="PXI-3o-4gK" id="PPG-xx-paE"/>
+                        <outlet property="nameLabel" destination="BKG-Wd-RQw" id="uOg-qO-tKU"/>
+                        <outlet property="priceLabel" destination="CIm-aq-tjd" id="uyW-Lj-dn8"/>
+                        <outlet property="symbolLabel" destination="h0m-hk-Bnr" id="u0k-bc-wuN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-207.24637681159422" y="46.875"/>
+        </scene>
+    </scenes>
+</document>
