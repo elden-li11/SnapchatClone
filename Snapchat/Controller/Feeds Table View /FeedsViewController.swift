@@ -60,7 +60,17 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
                 if (cell.opened == true) {
                     cell.imageName = "read"
                 }
-                cell.timestampLabel.text = post.timestamp.description
+                let timeNow: Date = Date()
+                let timeSincePost: Double = timeNow.timeIntervalSince(post.timestamp)
+                if (timeSincePost < 60) {
+                    cell.timestampLabel.text = "just now"
+                } else {
+                    if (timeSincePost < 120) {
+                        cell.timestampLabel.text = "1 Minute Ago"
+                    } else {
+                        cell.timestampLabel.text = String(Int(floor(timeSincePost / 60))) + " Minutes Ago"
+                    }
+                }
                 cell.feedName = post.feed
                 cell.personLabel.text = "Arman and Elden"
             }
