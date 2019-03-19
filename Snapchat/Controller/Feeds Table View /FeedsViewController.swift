@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
     var imageSelected = ""
     let data = Data()
+    let db = Firestore.firestore()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return FeedStates.imagesPosted[data.feeds[section]]!.count
@@ -50,6 +51,7 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
             if let posts = FeedStates.imagesPosted[feedName] {
                 let post = posts[indexPath.row]
                 cell.personLabel.text = post.user
+                cell.feedName = post.feed
                 cell.opened = post.opened
                 if (cell.opened == false) {
                     cell.imageName = "unread"
@@ -68,7 +70,6 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
                         cell.timestampLabel.text = String(Int(floor(timeSincePost / 60))) + " Minutes Ago"
                     }
                 }
-                cell.feedName = post.feed
             }
             return cell
         }
@@ -79,7 +80,17 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
         let feedName: String = data.feeds[indexPath.section]
         let currImage = FeedStates.imagesPosted[feedName]![indexPath.row]
         if !currImage.opened {
-            FeedStates.imagesPosted[feedName]![indexPath.row].opened = true
+            var imageSelected: imageState = FeedStates.imagesPosted[feedName]![indexPath.row]
+            imageSelected.opened = true
+            db.collection("snaps").document(imageSelected.imageName).setData([
+                "seen": true
+            ], merge: true) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
             performSegue(withIdentifier: "enlargeImage", sender: currImage)
         } else {
             alreadyOpenedAlert()

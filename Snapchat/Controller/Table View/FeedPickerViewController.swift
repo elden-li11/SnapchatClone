@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class FeedPickerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    let data = Data()
+    let db = Firestore.firestore()
+    var imageName: String = ""
+    var feedName: String = ""
+    var feedSelected: Bool = false
     
     @IBOutlet weak var feedPickerTableView: UITableView!
     
@@ -42,11 +48,6 @@ class FeedPickerViewController: UIViewController, UITableViewDataSource, UITable
         feedName = data.feeds[indexPath.row]
     }
     
-    let data = Data()
-    var imageName: String = ""
-    var feedName: String = ""
-    var feedSelected: Bool = false
-    
     @IBOutlet weak var postImageLabel: UILabel!
     @IBOutlet weak var toFeedLabel: UILabel!
     
@@ -77,5 +78,18 @@ class FeedPickerViewController: UIViewController, UITableViewDataSource, UITable
     func addSnap() {
         let imageToSend: imageState = imageState.init("Arman and Elden", self.imageName, Date(), self.feedName)
         FeedStates.imagesPosted[self.feedName]?.append(imageToSend)
+        db.collection("snaps").document(imageToSend.imageName).setData([
+            "user": imageToSend.user,
+            "image name": imageToSend.imageName,
+            "feed": imageToSend.feed,
+            "time": imageToSend.timestamp,
+            "seen": imageToSend.opened
+        ], merge: true) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
     }
 }
