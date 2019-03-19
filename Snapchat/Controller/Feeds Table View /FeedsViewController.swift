@@ -47,12 +47,9 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "Feeds label", for: indexPath) as? FeedsViewCell {
             let feedName: String = data.feeds[indexPath.section]
-//            indexPath.section.
-//            let posts: Array = FeedStates.imagesPosted[feedName]!
-            print("row " + String(indexPath.row))
-            print("feed " + feedName)
             if let posts = FeedStates.imagesPosted[feedName] {
                 let post = posts[indexPath.row]
+                cell.personLabel.text = post.user
                 cell.opened = post.opened
                 if (cell.opened == false) {
                     cell.imageName = "unread"
@@ -72,11 +69,7 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
                     }
                 }
                 cell.feedName = post.feed
-                cell.personLabel.text = "Arman and Elden"
             }
-//            let currImage: imageState = FeedStates.imagesPosted[feedName]![indexPath.row]
-            print(FeedStates.imagesPosted)
-//            print("updated cell")
             return cell
         }
         return UITableViewCell()
@@ -96,7 +89,7 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? BigImageViewController {
             if var cell = sender as? imageState {
-                dest.imageName = cell.name
+                dest.imageName = cell.imageName
                 cell.opened = true
             }
         }
