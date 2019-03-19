@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class FeedPickerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    let data = Data()
+    let db = Firestore.firestore()
+    var imageName: String = ""
+    var feedName: String = ""
+    var feedSelected: Bool = false
     
     @IBOutlet weak var feedPickerTableView: UITableView!
     
@@ -42,11 +48,6 @@ class FeedPickerViewController: UIViewController, UITableViewDataSource, UITable
         feedName = data.feeds[indexPath.row]
     }
     
-    let data = Data()
-    var imageName: String = ""
-    var feedName: String = ""
-    var feedSelected: Bool = false
-    
     @IBOutlet weak var postImageLabel: UILabel!
     @IBOutlet weak var toFeedLabel: UILabel!
     
@@ -54,6 +55,7 @@ class FeedPickerViewController: UIViewController, UITableViewDataSource, UITable
         if !feedSelected {
             noFeedAlert()
         } else {
+            addSnap()
             feedSentAlert()
         }
     }
@@ -68,10 +70,26 @@ class FeedPickerViewController: UIViewController, UITableViewDataSource, UITable
         let alertController = UIAlertController(title: "Successful", message: "You've sent " + imageName + " to " + feedName + ".", preferredStyle: UIAlertController.Style.alert)
         let backToImagesAction = UIAlertAction(title: "OK", style: .default) { (action: UIAlertAction!) -> Void in
             _ = self.navigationController!.popToRootViewController(animated: true)
-            let imageToSend: imageState = imageState.init(self.imageName, Date(), self.feedName)
-            FeedStates.imagesPosted[self.feedName]?.append(imageToSend)
         }
         alertController.addAction(backToImagesAction)
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func addSnap() {
+        let imageToSend: imageState = imageState.init("Arman and Elden", self.imageName, Date(), self.feedName)
+        FeedStates.imagesPosted[self.feedName]?.append(imageToSend)
+        db.collection("snaps").document(imageToSend.imageName).setData([
+            "user": imageToSend.user,
+            "image name": imageToSend.imageName,
+            "feed": imageToSend.feed,
+            "time": imageToSend.timestamp,
+            "seen": imageToSend.opened
+        ], merge: true) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
     }
 }

@@ -17,13 +17,15 @@ class FeedStates {
 }
 
 struct imageState {
-    let name: String
+    let user: String
+    let imageName: String
     let timestamp: Date
     let feed: String
     var opened: Bool
     
-    init(_ name: String, _ timestamp: Date, _ feed: String) {
-        self.name = name
+    init(_ user: String, _ imageName: String, _ timestamp: Date, _ feed: String) {
+        self.user = user
+        self.imageName = imageName
         self.timestamp = timestamp
         self.feed = feed
         self.opened = false
