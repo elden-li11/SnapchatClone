@@ -12,7 +12,6 @@ import FirebaseFirestore
 class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var imageSelected = ""
     let data = Data()
-    let db = Firestore.firestore()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return FeedStates.imagesPosted[data.feeds[section]]!.count
@@ -59,17 +58,7 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
                 if (cell.opened == true) {
                     cell.imageName = "read"
                 }
-                let timeNow: Date = Date()
-                let timeSincePost: Double = timeNow.timeIntervalSince(post.timestamp)
-                if (timeSincePost < 60) {
-                    cell.timestampLabel.text = "just now"
-                } else {
-                    if (timeSincePost < 120) {
-                        cell.timestampLabel.text = "1 Minute Ago"
-                    } else {
-                        cell.timestampLabel.text = String(Int(floor(timeSincePost / 60))) + " Minutes Ago"
-                    }
-                }
+                cell.timestampLabel.text = post.timeSincePost()
             }
             return cell
         }
@@ -77,12 +66,12 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let db = Firestore.firestore()
         let feedName: String = data.feeds[indexPath.section]
         let currImage = FeedStates.imagesPosted[feedName]![indexPath.row]
         if !currImage.opened {
-            var imageSelected: imageState = FeedStates.imagesPosted[feedName]![indexPath.row]
-            imageSelected.opened = true
-            db.collection("snaps").document(imageSelected.imageName).setData([
+            FeedStates.imagesPosted[feedName]![indexPath.row].opened = true
+            db.collection("snaps").document(currImage.imageName).setData([
                 "seen": true
             ], merge: true) { err in
                 if let err = err {
@@ -129,13 +118,22 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.present(alertController, animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+//    func retrieveSnapFromDB(_ document: String) -> imageState {
+//        let db = Firestore.firestore()
+//        let docRef = db.collection("snaps").document(document)
+//        
+//        docRef.getDocument { (document, error) in
+//            if let document = document, document.exists {
+//                let dataDescription = document.data()!
+//                return imageState.init(
+//                    dataDescription["user"] as! String,
+//                    dataDescription["image name"] as! String,
+//                    dataDescription["time"] as! Date,
+//                    dataDescription["feed"] as! String
+//                )
+//            } else {
+//                print("Document does not exist")
+//            }
+//        }
+//    }
 }

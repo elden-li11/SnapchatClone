@@ -30,4 +30,18 @@ struct imageState {
         self.feed = feed
         self.opened = false
     }
+    
+    func timeSincePost() -> String {
+        let timeNow: Date = Date()
+        let timeSincePost: Double = timeNow.timeIntervalSince(self.timestamp)
+        if (timeSincePost < 60) {
+            return "just now"
+        } else {
+            if (timeSincePost < 120) {
+                return "1 Minute Ago"
+            } else {
+                return String(Int(floor(timeSincePost / 60))) + " Minutes Ago"
+            }
+        }
+    }
 }

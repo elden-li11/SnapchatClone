@@ -11,7 +11,6 @@ import FirebaseFirestore
 
 class FeedPickerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let data = Data()
-    let db = Firestore.firestore()
     var imageName: String = ""
     var feedName: String = ""
     var feedSelected: Bool = false
@@ -76,6 +75,7 @@ class FeedPickerViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func addSnap() {
+        let db = Firestore.firestore()
         let imageToSend: imageState = imageState.init("Arman and Elden", self.imageName, Date(), self.feedName)
         FeedStates.imagesPosted[self.feedName]?.append(imageToSend)
         db.collection("snaps").document(imageToSend.imageName).setData([

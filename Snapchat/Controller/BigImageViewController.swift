@@ -23,7 +23,6 @@ class BigImageViewController: UIViewController {
     
     @IBAction func imagePressed(_ sender: Any) {
         _ = navigationController?.popViewController(animated: true)
-        print("minimizing image")
     }
 
     /*
